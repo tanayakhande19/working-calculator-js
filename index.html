@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                background-color: bisque;
+            }
+            .app-title {
+                text-align: center;
+                color: #cc0066;
+                font-size: 50px;
+            }
+            .calculator-container {
+                background-color: black;
+                height: 400px;
+                width: 350px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            .calculator-screen {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 280px;
+                font-size: 50px;
+                border-radius: 5px;
+                border: none;
+                background-color: #a3c2c2;
+            }
+            .brand-name {
+                text-align: right;
+                margin-right: 40px;
+                font-weight: bold;
+                color: white;
+            }
+
+            .btn{
+                font-size: 40px;
+                height: 50px;
+                width: 50px;
+                margin: 5px;
+                border-radius: 5px;
+                border: 1px solid black;
+            }
+            .btn:hover{
+                border-radius: 10px;
+                transition: 0.5s;
+                cursor: pointer;
+                box-shadow: 0 0 10px #ccff66;
+
+            }
+            .buttons-container{
+                margin-top: 20px;
+                margin-left: 30px;
+                margin-right: 30px;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+            .btn-special{
+                background-color:#ff1a1a;
+                color: white;
+            }
+            .btn-normal{
+                background-color: #ffa31a;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="app-title">Calculator</h1>
+
+        <div class="calculator-container">
+            <p class="brand-name">CASIO</p>
+          <input type="text" id="input" class="calculator-screen" />
+
+          <div class="buttons-container">
+            <button class="btn btn-normal" onclick="pressKey(1)">1</button>
+            <button class="btn btn-normal" onclick="pressKey(2)">2</button>
+            <button class="btn btn-normal" onclick="pressKey(3)">3</button>
+            <button class="btn btn-special" onclick="pressKey('+')">+</button>
+
+            <button class="btn btn-normal" onclick="pressKey(4)">4</button>
+            <button class="btn btn-normal" onclick="pressKey(5)">5</button>
+            <button class="btn btn-normal" onclick="pressKey(6)">6</button>
+            <button class="btn btn-special" onclick="pressKey('-')">-</button>
+
+            <button class="btn btn-normal" onclick="pressKey(7)">7</button>
+            <button class="btn btn-normal" onclick="pressKey(8)">8</button>
+            <button class="btn btn-normal" onclick="pressKey(9)">9</button>
+            <button class="btn btn-special" onclick="pressKey('*')">x</button>
+
+            <button class="btn btn-special" onclick="pressKey('.')">.</button>
+            <button class="btn btn-normal" onclick="pressKey(0)">0</button>
+            <button class="btn btn-special" onclick="calculate()">=</button>
+            <button class="btn btn-special" onclick="pressKey('÷')">/</button>
+
+          </div>
+        </div>
+
+        <script>
+            function pressKey(keyValue){
+                const screenElement = document.getElementById("input");
+                screenElement.value += keyValue;
+            }
+
+            function calculate(){
+                const screenElement = document.getElementById("input");
+                screenElement.value = eval(screenElement.value);
+            }
+            </script>
+    </body>
+</html>
